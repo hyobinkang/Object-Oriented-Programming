@@ -2,7 +2,6 @@ package java_2022;
 
 import java.io.*;
 import java.util.*;
-//수정
 import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
