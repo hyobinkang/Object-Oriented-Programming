@@ -77,7 +77,7 @@ class MyThread2 implements Runnable{ //인터페이스 스레드
 	}
 }
 
-public class KmovieBooking{
+public class KmovieBooking{ //메인함수
 	public static void main(String[] args) {
 		KmovieBooking st = new KmovieBooking();
 		
@@ -86,7 +86,7 @@ public class KmovieBooking{
 		System.out.println("영화추천 프로그램 MOVIE_LOVE 를 찾아주셔서 감사합니다.");
 		System.out.println("현재 거주하고 계시는 국가를 선택해주세요");
 		System.out.println("1.아시아/오세아니아 | 2.미주 | 3.유럽 | 4.중동 | 5.아프리카");
-		int menu[] = new int[1];
+		int menu[] = new int[1]; //배열
 		try { //예외처리
 			menu[0] = sc.nextInt();
 		} catch (InputMismatchException e) {
@@ -128,7 +128,7 @@ public class KmovieBooking{
 		
 		Country country = null;
 		
-		switch(menu[0]){
+		switch(menu[0]){ //
 			case 1:
 				country = Country.Asia_or_Oceania; break;
 			case 2:
@@ -176,7 +176,7 @@ public class KmovieBooking{
 		}
 	}
 	
-	public void check(String state) {
+	public void check(String state) { //영화번호 확인
 		System.out.println("이중에서 어떤 영화를 예매하시겠습니까? 영화의 번호를 입력해주세요.");
 		Scanner scan = new Scanner(System.in);
 		int select[] = new int[1];
@@ -217,7 +217,7 @@ public class KmovieBooking{
 		chooseMovie(state,select[0]);
 	}
 	
-	public void printMovieList(String nation) {
+	public void printMovieList(String nation) { //추천영화 목록 출력
 		List<List<String>> movies = readCSV();
 		 
         movies.remove(0); //첫줄 제거
@@ -229,7 +229,7 @@ public class KmovieBooking{
         return;
 	}
 	
-	public void chooseMovie(String nation, int idx) {
+	public void chooseMovie(String nation, int idx) { //파일 입/출력 & 컬렉션 프레임워크(List)
 		List<List<String>> movies = readCSV();
 		
         movies.remove(0); //첫줄 제거
@@ -252,7 +252,7 @@ public class KmovieBooking{
         BufferedReader reader = null;
         String line = "";
  
-        try {
+        try { //예외처리
         	reader = new BufferedReader(new FileReader(filePath));
             while ((line = reader.readLine()) != null) { // readLine()은 파일에서 개행된 한 줄의 데이터를 읽어온다.
                 List<String> tmpList = new ArrayList<String>();
@@ -265,7 +265,7 @@ public class KmovieBooking{
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            try {
+            try { //예외처리
                 if (reader != null) {
                     reader.close(); // 사용 후 BufferedReader를 닫아준다.
                 }
@@ -276,9 +276,9 @@ public class KmovieBooking{
         return csvList;
     }
 	
-	public void reservation() { //메인함수
+	public void reservation() { //영화예매
 		Scanner scanner = new Scanner(System.in);
-		int today[] = new int[2];
+		int today[] = new int[2]; //배
 		System.out.print("오늘의 날짜를 입력해주세요(공백을 기준으로 월/일 순) : ");
 		try { //예외처리
 			today[0] = scanner.nextInt();
@@ -316,13 +316,13 @@ public class KmovieBooking{
 			}
 		}
 		int num = today[1];
-		int dates[] = new int[32];
+		int dates[] = new int[32]; //
 		System.out.println("이름을 입력해주세요 : ");
 		String name = scanner.next();
 
 		User User = new User(); //객체생성
 		User.setName(name);
-		int movieDate[] = new int[1];
+		int movieDate[] = new int[1]; //
 		System.out.print( num + " ~ 31일 중에 예매하실 날짜를 입력해주세요 : ");
 		try { //예외처리
 			movieDate[0] = scanner.nextInt();         
